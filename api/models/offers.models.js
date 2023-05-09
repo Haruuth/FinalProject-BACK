@@ -4,12 +4,16 @@ const Schema = mongoose.Schema
 
 const offersSchema = new Schema (
     {
-        position: {type: String, required: true },
-        company: {type: String, required: true },
-        description: {type: String, required: true },
-        requirements: {type: String, required: true },
-        salary: {type: Number, required: true },
-        location: {type: String, required: true },
+        position: {type: String, required: false },
+        company: {type: String, required: false },
+        description: {type: String, required: false },
+        requirements: {type: String, required: false },
+        salary: {type: Number, required: false },
+        availability: {type: String, required: false },
+        location: {type: String, required: false },
+        city: {type: String, required: false },
+        contractType: {type: String, required: false },
+        
     }
 )
 
