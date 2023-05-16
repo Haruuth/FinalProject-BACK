@@ -23,8 +23,14 @@ const getOffersById = async (req, res) => {
 const createOffers = async (req, res) => {
   try {
 
-    const { position, company, description, requirements, keywords, salary, availability, location, city, contractType, scheduleType, lock } = req.body;
-    const nuevaOferta = new Offers({ position, company, description, requirements, keywords, salary, availability, location, city, contractType, scheduleType, lock }); 
+    const { position, company, description, requirements, keywords, salary, availability, location, city, contractType, scheduleType} = req.body;
+    const lock = req.body.lock !== undefined ? req.body.lock : true;
+    const date = req.body.date !== undefined ? req.body.date : data.date 
+    // = {
+    //   month: currentDate.getMonth() + 1,
+    //   year: currentDate.getFullYear()
+    // };
+    const nuevaOferta = new Offers({ position, company, description, requirements, keywords, salary, availability, location, city, contractType, scheduleType, lock, date }); 
 
     await nuevaOferta.save();
     res.status(201).send(nuevaOferta);
